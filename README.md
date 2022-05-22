@@ -11,10 +11,11 @@ pip install -r requirements.txt
 Then, you can import the utils module located in the code folder of this repository to reproduce the analysis in the final report that this code supplements (in a Jupyter Notebook, like README.ipynb in this repository, or in any other Python script):
 
 ```
-# import statements
 import sys
 sys.path.insert(0, 'code')
 import utils
+import json
+import pandas as pd
 import matplotlib.pyplot as plt
 ```
 
@@ -53,6 +54,8 @@ plt.title('Figure 1.1: Top 30 Words for #MomLife', fontsize=16)
 plt.show()
 ```
 
+![png](visuals/Momlife_frequency_barplot.png)
+
 ```
 # DadLife
 indexes, values, labels = utils.word_frequency(dadlife)
@@ -72,6 +75,8 @@ plt.title('Figure 1.2: Top 30 Words for #DadLife', fontsize=16)
 plt.show()
 ```
 
+![png](visuals/Dadlife_frequency_barplot.png)
+
 Hashtag Analysis
 
 ```
@@ -90,6 +95,8 @@ plt.title('Figure 2.1: Top 30 Hashtags for #MomLife', fontsize=16)
 plt.show()
 ```
 
+![png](visuals/Momlife_htfrequency_barplot.png)
+
 ```
 #DadLife
 indexes, values, labels = utils.get_frequent_hashtags(dadlife)
@@ -106,6 +113,8 @@ plt.title('Figure 2.2: Top 30 Hashtags for #DadLife', fontsize=16)
 #fig.savefig('visuals/Dadlife_htfrequency_barplot', bbox_inches='tight')
 plt.show()
 ```
+
+![png](visuals/Dadlife_htfrequency_barplot.png)
 
 
 ### Analysis Two: Sentiment Analysis
@@ -129,6 +138,8 @@ plt.xlabel('Sentiment Score', size = 14)
 plt.legend(fontsize=12);
 ```
 
+![jpg](visuals/SentAnalysis_all_Tweets.jpg)
+
 Because the second part of sentiment analysis is based on training a Deep Learning transformer, I've saved the sequence classifier scores in a json file in the data folder. To produce the plot we see below, run the following code:
 
 ```
@@ -149,8 +160,7 @@ plt.legend()
 plt.show()
 ```
 
-
-![jpg](visuals/SentAnalysis_all_Tweets.jpg)
+![jpg](visuals/tweets_seqclass_emotions.jpg)
 
 ### Analysis Three: Topic Modeling
 
@@ -179,29 +189,8 @@ ax.legend(handles=scatter.legend_elements()[0], labels=labels, title="Topic")
 plt.show()
 ```
 
-```
-# Momlife Topic Keywords
-df = utils.get_topic_keywords(lda_model, texts)
-# Plot Word Count and Weights of Topic Keywords
-fig, axes = plt.subplots(1, 3, figsize=(22,12), sharey=False)
-cols = [color for name, color in mcolors.TABLEAU_COLORS.items()]
-for i, ax in enumerate(axes.flatten()):
-    if i == 3:
-        break
-    ax.barh(y='word', width="word_count", data=df.loc[df.topic_id==i, :], color=cols[i], height=0.5, alpha=0.3, label='Word Count')
-    ax_twin = ax.twiny()
-    ax_twin.barh(y='word', width="importance", data=df.loc[df.topic_id==i, :], color=cols[i], height=0.2, label='Weights')
-    #ax.set_ylabel('Word', fontsize=16)
-    ax_twin.set_xlim(0, 0.050); ax.set_xlim(0, 3500)
-    ax.set_title('Topic: ' + str(i), color=cols[i], fontsize=16)
-    ax.tick_params(axis='x', left=False)
-    ax.set_yticklabels(df.loc[df.topic_id==i, 'word'], fontsize=16)
-    ax.legend(loc='lower right', fontsize=14); ax_twin.legend(loc='upper right', fontsize=14);
+![jpg](visuals/momlife_topicperccontribution.jpg)
 
-fig.tight_layout(w_pad=2)
-fig.suptitle('Figure 4.3: Wordcount and Importance in #MomLife Topic Keywords', fontsize=22, y=1.03)    
-plt.show();
-```
 
 ```
 # DADLIFE VISUALIZATION
@@ -228,6 +217,35 @@ ax.legend(handles=scatter.legend_elements()[0], labels=labels, title="Topic")
 plt.show()
 ```
 
+
+![jpg](visuals/dadlife_topicperccontribution.jpg)
+
+```
+# Momlife Topic Keywords
+df = utils.get_topic_keywords(lda_model, texts)
+# Plot Word Count and Weights of Topic Keywords
+fig, axes = plt.subplots(1, 3, figsize=(22,12), sharey=False)
+cols = [color for name, color in mcolors.TABLEAU_COLORS.items()]
+for i, ax in enumerate(axes.flatten()):
+    if i == 3:
+        break
+    ax.barh(y='word', width="word_count", data=df.loc[df.topic_id==i, :], color=cols[i], height=0.5, alpha=0.3, label='Word Count')
+    ax_twin = ax.twiny()
+    ax_twin.barh(y='word', width="importance", data=df.loc[df.topic_id==i, :], color=cols[i], height=0.2, label='Weights')
+    #ax.set_ylabel('Word', fontsize=16)
+    ax_twin.set_xlim(0, 0.050); ax.set_xlim(0, 3500)
+    ax.set_title('Topic: ' + str(i), color=cols[i], fontsize=16)
+    ax.tick_params(axis='x', left=False)
+    ax.set_yticklabels(df.loc[df.topic_id==i, 'word'], fontsize=16)
+    ax.legend(loc='lower right', fontsize=14); ax_twin.legend(loc='upper right', fontsize=14);
+
+fig.tight_layout(w_pad=2)
+fig.suptitle('Figure 4.3: Wordcount and Importance in #MomLife Topic Keywords', fontsize=22, y=1.03)    
+plt.show();
+```
+
+![jpg](visuals/momlife_wordcount_topickeywords.jpg)
+
 ```
 # Dadlife Topic Keywords
 df = utils.get_topic_keywords(lda_model, texts)
@@ -252,6 +270,7 @@ fig.suptitle('Figure 4.4: Wordcount and Importance in #DadLife Topic Keywords', 
 plt.show();
 ```
 
+![jpg](visuals/dadlife_wordcount_topickeywords.jpg)
 
 
 
