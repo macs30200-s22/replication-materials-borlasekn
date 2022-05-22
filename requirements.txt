@@ -8,3 +8,6 @@ nltk>=3.6.6
 wordcloud==1.8.1
 pprint
 pickle
+collections
+numpy
+sys
