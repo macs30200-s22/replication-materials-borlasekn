@@ -1,5 +1,7 @@
 # replication-materials-borlasekn
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6569885.svg)](https://doi.org/10.5281/zenodo.6569885)
+
 The code and data in this repository is the research workflow for a MACS 30200 "Perspectives on Computational Research" final project at the University of Chicago. This project studied the performance of parenthood on Twitter to answer the question: To what extent does the expression of motherhood compare to that of fatherhood on Twitter?
 
 The code is written in Python 3.9.7 and all of its dependencies can be installed by running the following in the terminal (with the requirements.txt file included in this repository):
@@ -276,6 +278,4 @@ plt.show();
 
 
 
-If you use this repository for a scientific publication, we would appreciate it if you cited the the MIT license found under the LICENSE file of this repository.
-
-I have not made this repository public, as this may be a pilot study for my Master's thesis.
+If you use this repository for a scientific publication, we would appreciate it if you cited the Zenodo DOI (see the "Cite as" section on our Zenodo page for more details).
