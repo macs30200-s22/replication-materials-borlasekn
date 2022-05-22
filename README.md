@@ -252,6 +252,11 @@ fig.suptitle('Figure 4.4: Wordcount and Importance in #DadLife Topic Keywords', 
 plt.show();
 ```
 
+
+
+
+
+
 If you use this repository for a scientific publication, we would appreciate it if you cited the the MIT license found under the LICENSE file of this repository.
 
 I have not made this repository public, as this may be a pilot study for my Master's thesis.
