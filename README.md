@@ -105,7 +105,7 @@ fig.savefig('visuals/combinedml_frequency_barplot', bbox_inches='tight')
 plt.show()
 ```
 
-![png](visualscombinedml_frequency_barplot.png)
+![png](visuals/combinedml_frequency_barplot.png)
 
 Per the #Dadlife plot below, there is the frequency of the top 30 words in #DadLife plotted with the frequency of those same words in #MomLife. The top words in #DadLife account for a more limited range of topics than momlife, but include spending time with their kids, their identity, and recreational activities.
 
@@ -127,7 +127,7 @@ fig.savefig('visuals/combineddl_frequency_barplot', bbox_inches='tight')
 plt.show()
 ```
 
-![png](visualscombineddl_frequency_barplot.png)
+![png](visuals/combineddl_frequency_barplot.png)
 
 Finally, we combined our corpuses for a frequency analysis on the entire corpus of Tweets. To prepare and plot the data, run the code below.
 
@@ -178,7 +178,7 @@ fig.savefig('visuals/combined_frequency_barplot', bbox_inches='tight')
 plt.show()
 ```
 
-![png](visualscombined_frequency_barplot.png)
+![png](visuals/combined_frequency_barplot.png)
 
 #### Hashtag Analysis
 
