@@ -430,4 +430,4 @@ plt.show();
 ![jpg](visuals/dadlife_wordcount_topickeywords.jpg)
 
 
-If you use this repository for a scientific publication, we would appreciate it if you cited the Zenodo DOI (see the "Cite as" section on our Zenodo page for more details).
+#### If you use this repository for a scientific publication, we would appreciate it if you cited the Zenodo DOI (see the "Cite as" section on our Zenodo page for more details).
